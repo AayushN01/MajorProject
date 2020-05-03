@@ -1,0 +1,30 @@
+>GUI based application
+>GUI presents back-end data in visually coherent way to users
+>API lets your machine talk directly to other machine
+>PYGAME===> cross-platform, includes graphics and sound libraries to be used.
+>NumPy===> used for scientific computing to perform different operations
+>TKinter===> GUI tool, provides various controls like buttons, labels and textboxes used in a GUI application.
+>OpenCV==>Library aimed at real time computer vision
+
+>PIL= Pillow supports for opening, manipulating and saving many image file formats.
+
+****STEPS TO INSTALL TENSORFLOW****
+1) Install python environment
+    python --version
+    pip --version
+    virtualenv --version
+_______________________________
+2) Create a virtual environmen
+-----install virtual environment---
+==>pip install -U virtualenv
+Check venv version
+==>virtualenv --version
+**Create virtual environment**
+==>virtualenv NAME
+**Activate virtua environment**
+==>NAME\Scripts\Activate
+**Deactivate**
+==>deactivate
+_________________________________
+3)Install Tensorflow pip package
+  =+>(venv) pip install --upgrade tensorflow

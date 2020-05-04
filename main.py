@@ -56,7 +56,7 @@ button1 = Button(frame, text="Input Image",padx=100, pady= 20, bg='white', fg='b
 button1.pack()
 
 def convert():
-    img= cv2.imread("100.jpg")
+    img= cv2.imread(root.filename)
     cv2.imshow("Original Image", img)
     cv2.waitKey(0)
     gray_img= cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -68,7 +68,7 @@ button2 = Button(frame, text="Gray Conversion",padx=89, pady= 20, bg='white', fg
 button2.pack()
 
 def resize():
-    img = cv2.imread("100.jpg",0)
+    img = cv2.imread(root.filename,0)
     cv2.imshow("Gray Image", img)
     cv2.waitKey(0)
     resize = cv2.resize(img,(int(img.shape[1]*1.5), int(img.shape[0]*1.5)))

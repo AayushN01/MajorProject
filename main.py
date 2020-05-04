@@ -27,7 +27,7 @@ def Contri():
     tkinter.messagebox.showinfo("Contributors", "\n1. Aayush Niraula\n2. Anjita Kandel\n3. Kopila Chaudhary Tharu\n4. Manish Ojha \n")
 
 def anotherWin():
-    tkinter.messagebox.showinfo("About",'Fake Currency Detection \n Made using\n-OpenCv\n-Numpy\n-Tkinter\n-Tensorflow\n In Python 3.8.0')
+    tkinter.messagebox.showinfo("About",'Fake Currency Detection \n Made using\n-OpenCv\n-Numpy\n-Tkinter\n-Tensorflow\n In Python 3.7.3')
 
 menu = Menu(root)
 root.config(menu=menu)
@@ -61,15 +61,18 @@ def convert():
     gray_img= cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     cv2.imshow("Gray Image",gray_img)
     cv2.waitKey(0)
+    cv2.destroyAllWindows()
     
 button2 = Button(frame, text="Gray Conversion",padx=89, pady= 20, bg='white', fg='black', relief=GROOVE, command=convert)
 button2.pack()
 
 def resize():
     img = cv2.imread("100.jpg",0)
+    cv2.imshow("Gray Image", img)
     resize = cv2.resize(img,(int(img.shape[1]*1.5), int(img.shape[0]*1.5)))
     cv2.imshow("Resized Image", resize)
     cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 button3 = Button(frame, text="Resized Image",padx=95, pady= 20, bg='white', fg='black', relief=GROOVE, command=resize)
 button3.pack()

@@ -71,7 +71,7 @@ def resize():
     img = cv2.imread(root.filename,0)
     cv2.imshow("Gray Image", img)
     cv2.waitKey(0)
-    resize = cv2.resize(img,(int(img.shape[1]*1.5), int(img.shape[0]*1.5)))
+    resize = cv2.resize(img,(int(img.shape[1]*0.5), int(img.shape[0]*0.5)))
     cv2.imshow("Resized Image", resize)
     cv2.waitKey(0)
     cv2.destroyAllWindows()

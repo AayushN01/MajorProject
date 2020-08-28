@@ -1,2 +1,0 @@
-*Initial accuracy = 59.4% at no. of epochs = 1 (No GPU) @loss=tensor(0.2461)
-* Second itr :-> loss= tensor(0.1179); accuracy = 85.5% @ no. of epochs =3

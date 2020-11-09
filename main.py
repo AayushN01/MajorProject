@@ -1,5 +1,5 @@
 import tkinter as tk
-import numpy
+import numpy as np
 import os
 import time
 import cv2
@@ -66,15 +66,32 @@ def select_roi():
     img= cv2.imread(image_data)
     cv2.imshow("Original Image", img)
     cv2.waitKey(0)
-    gray_img= cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    #Select ROI function
+    roi = cv2.selectROI(img)
+    #Print rectangular points of selected ROI
+    print(roi)
+    #Crop rectangular points of selected ROI
+    roi_cropped = img[int(roi[1]):int(roi[1]+roi[3]), int(roi[0]):int(roi[0]+roi[2])]
+    #Show cropped Image
+    cv2.imshow("ROI", roi_cropped)
+    cv2.imwrite("crop.jpeg", roi_cropped)
+    cv2.waitKey(0)
+    gray_img= cv2.cvtColor(roi_cropped, cv2.COLOR_BGR2GRAY)
     cv2.imshow("Gray Image",gray_img)
     cv2.waitKey(0)
-    blur_img =  cv2.GaussianBlur(gray_img,(3,3),cv2.BORDER_DEFAULT) #cv2.GaussianBlur(src_img,(kernel_size), border_type)==Applied to remove noise from gray image
+    blur_img =  cv2.GaussianBlur(gray_img,(5,5),cv2.BORDER_DEFAULT) #cv2.GaussianBlur(src_img,(kernel_size), border_type)==Applied to remove noise from gray image
     cv2.imshow("Blurred Image", blur_img)
     cv2.waitKey(0)
-    canny = cv2.Canny(blur_img, 20, 150)
-    cv2.imshow("Canny Edge Detection", canny)
+    canny = cv2.Canny(blur_img, 100, 200)
+    cv2.imshow("Canny Edge Detection", canny) 
     cv2.waitKey(0)
+    # kernel = np.ones((5,5), np.uint8)
+    # erosion = cv2.erode(canny, kernel, iterations= 1)
+    # cv2.imshow("Erosion", erosion)
+    # cv2.waitKey(0)
+    # dilation = cv2.dilate(canny, kernel, iterations=1)
+    # cv2.imshow("Dilation", dilation)
+    # cv2.waitKey(0)
     cv2.destroyAllWindows()
     
 roi_btn = tk.Button(root, text="ROI Selection",padx=35, pady= 10, bg='grey', fg='black',command=select_roi)
